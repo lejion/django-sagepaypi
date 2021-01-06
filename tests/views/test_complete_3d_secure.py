@@ -20,7 +20,7 @@ class TestView(AppTestCase):
         self.tidb64, self.token = self.transaction.get_tokens()
         self.url = reverse(
             'sagepaypi:complete_3d_secure',
-            kwargs={'tidb64': self.tidb64.decode('utf-8'), 'token': self.token}
+            kwargs={'tidb64': self.tidb64, 'token': self.token}
         )
 
     def test_get_not_allowed(self):
@@ -54,6 +54,6 @@ class TestView(AppTestCase):
 
         expected_url = reverse(
             settings.SAGEPAYPI_POST_3D_SECURE_REDIRECT_URL,
-            kwargs={'tidb64': tidb64.decode('utf-8'), 'token': token})
+            kwargs={'tidb64': tidb64, 'token': token})
 
         self.assertRedirects(response, expected_url)

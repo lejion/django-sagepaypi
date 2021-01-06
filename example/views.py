@@ -56,7 +56,7 @@ class TransactionCreateView(SessionWizardView):
         return HttpResponseRedirect(
             reverse(
                 get_setting('POST_3D_SECURE_REDIRECT_URL'),
-                kwargs={'tidb64': tidb64.decode('utf-8'), 'token': token}
+                kwargs={'tidb64': tidb64, 'token': token}
             )
         )
 

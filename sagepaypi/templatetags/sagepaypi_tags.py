@@ -14,7 +14,7 @@ def sagepay_secure_redirect_form(context, transaction, **kwargs):
         'protocol': protocol,
         'acsurl': transaction.acs_url,
         'pareq': transaction.pareq,
-        'tidb64': tidb64.decode('utf-8'),
+        'tidb64': tidb64,
         'token': token,
         'transaction_id': transaction.transaction_id
     }

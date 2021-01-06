@@ -49,5 +49,5 @@ class Complete3DSecureView(FormView):
 
     def get_success_url(self):
         tidb64, token = self.transaction.get_tokens()
-        kwargs = {'tidb64': tidb64.decode('utf-8'), 'token': token}
+        kwargs = {'tidb64': tidb64, 'token': token}
         return reverse(get_setting('POST_3D_SECURE_REDIRECT_URL'), kwargs=kwargs)
